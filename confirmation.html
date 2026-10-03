@@ -9,8 +9,8 @@
     
     body {
       font-family: 'Cormorant Garamond', 'Didot', 'Bodoni MT', 'Cinzel', serif, sans-serif;
-      background-color: #f5f0eb; /* Beige doux */
-      color: #1a1a1a; /* Noir doux */
+      background-color: #f5f0eb;
+      color: #1a1a1a;
       padding: 40px 15px;
       display: flex;
       justify-content: center;
@@ -19,7 +19,7 @@
     }
 
     .container {
-      background: #faf8f5; /* Blanc cassé */
+      background: #faf8f5;
       max-width: 650px;
       width: 100%;
       padding: 40px 25px;
@@ -66,7 +66,6 @@
 
     .hidden { display: none !important; }
 
-    /* Cartes de Paiement */
     .payment-box {
       background-color: #ffffff;
       border: 1px solid #e0d8d0;
@@ -85,7 +84,6 @@
       margin-top: 4px;
     }
 
-    /* Boutons Minimalistes */
     .btn {
       display: block;
       width: 100%;
@@ -118,7 +116,6 @@
       color: #faf8f5;
     }
 
-    /* Input */
     input[type="text"] {
       width: 100%;
       padding: 12px;
@@ -132,7 +129,6 @@
       color: #1a1a1a;
     }
 
-    /* Grille Menu & Boissons */
     .menu-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -233,21 +229,21 @@
 
     <!-- ÉTAPE 1 : PAIEMENT & CODE -->
     <div id="step-paiement">
-      <h2>Confirmation après dépôt validé</h2>
-      <p>Valide ta reservation par la formule de ton choix 😊😉: </p>
-      <p>- Par personne : 15.000 FCFA</p>
-      <p>- Par couple : 28.000 FCFA</p>
+      <h2>Confirmation apres dépot validé</h2>
+      <p>Valide ta réservation par la formule de ton choix </p>
+      <p>-par personne: 15.000FCFA</p>
+      <p>-par couple: 28.000FCFA</p>
       <div class="payment-box">
-        <strong>Airtel Money :</strong> +241 77985598
-        <span>Titulaire : ANGUE Charlena.</span>
+        <strong>Airtel Money :</strong> 077 98 55 98
+        <span>Titulaire : ANGUE MBA Charlena</span>
       </div>
 
       <div class="payment-box">
-        <strong>Moov Money :</strong> +241 62038893
-        <span>Titulaire : ALLOGHO Glenn.</span>
+        <strong>Moov Money :</strong> 062 03 88 93
+        <span>Titulaire : ALLOGHO Glenn</span>
       </div>
 
-      <a href="https://wa.me/+24177985598 ?text=Bonjour,%20voici%20mon%20re%C3%A7u%20de%20paiement." target="_blank" class="btn btn-secondary">
+      <a href="https://api.whatsapp.com/send?phone=24177985598&text=Bonjour,%20voici%20mon%20re%C3%A7u%20de%20paiement." target="_blank" class="btn btn-secondary">
         Transmettre le reçu sur WhatsApp
       </a>
 
@@ -345,7 +341,6 @@
 
   <script>
     const CODE_SECRET = "Mme ens"; 
-    const MON_NUMERO_WA = "24177985598"; // Votre numéro WhatsApp
 
     function validerCode() {
       const codeSaisi = document.getElementById('code-input').value.trim();
@@ -361,7 +356,7 @@
       event.preventDefault();
       const choixPlat = document.querySelector('input[name="plat"]:checked').value;
       const message = encodeURIComponent(`Bonjour, voici mon choix pour l'événement du 07 Octobre : ${choixPlat}`);
-      window.open(`https://wa.me/${MON_NUMERO_WA}?text=${message}`, '_blank');
+      window.open(`https://api.whatsapp.com/send?phone=24177985598&text=${message}`, '_blank');
     }
   </script>
 
