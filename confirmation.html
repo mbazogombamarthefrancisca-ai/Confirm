@@ -314,30 +314,73 @@
 
           <!-- COLONNE BOISSONS -->
           <div>
-            <span class="badge-tag">Drinks</span>
-            
-            <div class="drink-section">
-              <div class="drink-category">Sunset</div>
-              <div class="drink-item">• Passion + Mangue + Rhum blanc</div>
-              <div class="drink-item">• Pêche + Jus de passion + Rhum ambré</div>
-              <div class="drink-item">• Orange + Pamplemousse + Vodka</div>
+            <span class="badge-tag">Cocktails Sunset</span>
 
-              <div class="drink-category" style="margin-top: 15px;">Shoots / Tequila</div>
-              <div class="drink-item">• Tequila</div>
-              <div class="drink-item">• Vodka</div>
-              <div class="drink-item">• Rhum blanc / ambré</div>
-              <div class="drink-item">• Casamigos</div>
-              <div class="drink-item">• Don Julio</div>
+            <div class="menu-card">
+              <label>
+                <input type="radio" name="boisson" value="Cocktail Passion / Mangue / Rhum blanc" required>
+                <div class="menu-title">Passion & Rhum Blanc</div>
+                <div class="menu-desc">Passion + Mangue + Rhum blanc</div>
+              </label>
+            </div>
+
+            <div class="menu-card">
+              <label>
+                <input type="radio" name="boisson" value="Cocktail Pêche / Passion / Rhum ambré">
+                <div class="menu-title">Pêche & Rhum Ambré</div>
+                <div class="menu-desc">Pêche + Jus de passion + Rhum ambré</div>
+              </label>
+            </div>
+
+            <div class="menu-card">
+              <label>
+                <input type="radio" name="boisson" value="Cocktail Orange / Pamplemousse / Vodka">
+                <div class="menu-title">Citrus Vodka</div>
+                <div class="menu-desc">Orange + Pamplemousse + Vodka</div>
+              </label>
+            </div>
+
+            <span class="badge-tag" style="margin-top: 10px;">Shoots / Spiritueux</span>
+
+            <div class="menu-card">
+              <label>
+                <input type="radio" name="boisson" value="Shoot Tequila">
+                <div class="menu-title">Tequila</div>
+              </label>
+            </div>
+
+            <div class="menu-card">
+              <label>
+                <input type="radio" name="boisson" value="Shoot Vodka">
+                <div class="menu-title">Vodka</div>
+              </label>
+            </div>
+
+            <div class="menu-card">
+              <label>
+                <input type="radio" name="boisson" value="Shoot Rhum (Blanc/Ambré)">
+                <div class="menu-title">Rhum (Blanc / Ambré)</div>
+              </label>
+            </div>
+
+            <div class="menu-card">
+              <label>
+                <input type="radio" name="boisson" value="Shoot Casamigos">
+                <div class="menu-title">Casamigos</div>
+              </label>
+            </div>
+
+            <div class="menu-card">
+              <label>
+                <input type="radio" name="boisson" value="Shoot Don Julio">
+                <div class="menu-title">Don Julio</div>
+              </label>
             </div>
           </div>
-
-        </div>
-
         <button type="submit" class="btn">Valider mon Choix sur WhatsApp</button>
       </form>
     </div>
 
-  </div>
 
   <script>
     const CODE_SECRET = "Mme ens"; 
@@ -355,7 +398,11 @@
     function envoyerMenuWhatsApp(event) {
       event.preventDefault();
       const choixPlat = document.querySelector('input[name="plat"]:checked').value;
-      const message = encodeURIComponent(`Bonjour, voici mon choix pour l'événement du 07 Octobre : ${choixPlat}`);
+      const choixBoisson = document.querySelector('input[name="boisson"]:checked').value;
+      
+      const texteMessage = `Bonjour, voici mon choix pour l'événement du 07 Octobre :\n- Plat : ${choixPlat}\n- Boisson : ${choixBoisson}`;
+      const message = encodeURIComponent(texteMessage);
+      
       window.open(`https://api.whatsapp.com/send?phone=24177985598&text=${message}`, '_blank');
     }
   </script>
